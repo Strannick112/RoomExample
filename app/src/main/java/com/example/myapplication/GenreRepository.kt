@@ -4,20 +4,19 @@ import androidx.lifecycle.LiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class BookRepository(
+class GenreRepository (
     private val iDao: IDao
 ) {
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    fun insertNewBook(bookEntity: BookEntity){
+    fun insertNewGenre(genreEntity: GenreEntity){
         coroutineScope.launch(Dispatchers.IO){
-            iDao.insertNewBookData(bookEntity)
+            iDao.insertNewGenreData(genreEntity)
         }
     }
 
-    val bookList: LiveData<List<BookInfoTuple>> = iDao.getAllBookData()
+    val genreList: LiveData<List<GenreEntity>> = iDao.getAllGenreData()
 
 //    fun getAllBooks(): LiveData<List<BookInfoTuple>> {
 //        return coroutineScope.launch(Dispatchers.IO){
@@ -25,9 +24,9 @@ class BookRepository(
 //        }
 //    }
 
-    fun removeBookById(id: Int){
+    fun removeGenreById(id: Int){
         coroutineScope.launch(Dispatchers.IO) {
-            iDao.deleteBookDataById(id)
+            iDao.deleteGenreDataById(id)
         }
     }
 }

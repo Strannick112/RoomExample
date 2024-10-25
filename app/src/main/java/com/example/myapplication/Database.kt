@@ -11,6 +11,9 @@ import androidx.room.RoomDatabase
         BookEntity::class
     ]
 )
+
 abstract class Database: RoomDatabase() {
     abstract fun getBookDao(): IDao
+
+
 }

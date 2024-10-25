@@ -10,9 +10,8 @@ object Dependencies {
         appContext = context
     }
 
-    private val appDatabase: Database by lazy{
+    val appDatabase: Database by lazy{
         Room.databaseBuilder(appContext, Database::class.java, "database.db")
-            .createFromAsset("room_article.db")
             .build()
     }
 }

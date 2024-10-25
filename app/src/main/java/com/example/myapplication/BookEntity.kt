@@ -30,3 +30,4 @@ data class BookEntity (
     @ColumnInfo() val title: String,
     @ColumnInfo() val year: Int
 )
+
